@@ -176,16 +176,17 @@ async def main():
     try:
         # Handle command line arguments
         if len(sys.argv) > 1:
-            # Check if only a directory path is provided (new simplified format)
+            # Check if only a directory path is provided
             if len(sys.argv) == 2 and os.path.isdir(sys.argv[1]):
                 directory_path = sys.argv[1]
                 print(f"Connecting to Filesystem MCP server with directory: {directory_path}")
                 await client.connect_to_filesystem(directory_path)
-            # Original format with command and args
+
             elif len(sys.argv) >= 3:
                 command = sys.argv[1]
                 args = sys.argv[2:]
                 await client.connect_to_server(command, args)
+                
             else:
                 print("Usage:")
                 print("  python client.py <directory_path>")
