@@ -1,5 +1,6 @@
 import asyncio
-from typing import Optional
+import os
+from typing import Optional, Dict
 from contextlib import AsyncExitStack
 
 from mcp import ClientSession, StdioServerParameters
@@ -18,7 +19,7 @@ class MCPClient:
         self.exit_stack = AsyncExitStack()
         self.anthropic = Anthropic()
 
-    async def connect_to_server(self, command: str, args: list):
+    async def connect_to_server(self, command: str, args: list, env:Optional[Dict[str, str]] = None):
         """Connect to an MCP server
 
         Args:
@@ -27,11 +28,13 @@ class MCPClient:
             args: 
                 ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/dir"]
                 ["-y", "@modelcontextprotocol/server-slack"]  
+            env:
+                Optional environment variables dictionary
         """
         server_params = StdioServerParameters(
             command=command,
             args=args,
-            env=None
+            env=env
         )
 
         stdio_transport = await self.exit_stack.enter_async_context(stdio_client(server_params))
@@ -44,6 +47,28 @@ class MCPClient:
         response = await self.session.list_tools()
         tools = response.tools
         print("\nConnected to server with tools:", [tool.name for tool in tools])
+
+    async def connect_to_slack(self):
+      """
+      Helper method to connect to Slack MCP server
+      """
+      # Get slack tokens
+      slack_token = os.getenv('SLACK_BOT_TOKEN')
+      slack_team_id = os.getenv('SLACK_TEAM_ID')
+      
+      if not slack_token or not slack_team_id:
+          raise EnvironmentError("Missing required environment variables")
+      
+      env = {
+          'SLACK_BOT_TOKEN': slack_token,
+          'SLACK_TEAM_ID': slack_team_id
+      }
+
+      command = "npx"
+      args = ["-y", "@modelcontextprotocol/server-slack"]
+
+      await self.connect_to_slack(command, args, env)
+      print("Connected to Slack MCP server")
 
     async def process_query(self, query: str) -> str:
         """Process a query using Claude and available tools"""
