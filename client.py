@@ -181,16 +181,16 @@ async def main():
                 directory_path = sys.argv[1]
                 print(f"Connecting to Filesystem MCP server with directory: {directory_path}")
                 await client.connect_to_filesystem(directory_path)
+                await client.connect_to_slack()
 
             elif len(sys.argv) >= 3:
                 command = sys.argv[1]
                 args = sys.argv[2:]
                 await client.connect_to_server(command, args)
-                
+
             else:
                 print("Usage:")
                 print("  python client.py <directory_path>")
-                print("  python client.py <command> <args>")
                 print("  python client.py (no args to use Slack MCP server)")
                 sys.exit(1)
         else:
