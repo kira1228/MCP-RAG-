@@ -67,8 +67,24 @@ class MCPClient:
       command = "npx"
       args = ["-y", "@modelcontextprotocol/server-slack"]
 
-      await self.connect_to_slack(command, args, env)
+      await self.connect_to_server(command, args, env)
       print("Connected to Slack MCP server")
+
+    async def connect_to_filesystem(self, directory_path):
+        """
+        Helper method to connect to Filesystem MCP server with the specified directory
+        
+        Args:
+            directory_path: Path to the directory to expose via MCP
+        """
+        if not os.path.isdir(directory_path):
+            raise ValueError(f"Directory does not exist: {directory_path}")
+            
+        command = "npx"
+        args = ["-y", "@modelcontextprotocol/server-filesystem", directory_path]
+        
+        await self.connect_to_server(command, args)
+        print(f"Connected to Filesystem MCP server with directory: {directory_path}")      
 
     async def process_query(self, query: str) -> str:
         """Process a query using Claude and available tools"""
@@ -156,20 +172,34 @@ class MCPClient:
 
 
 async def main():
-    if len(sys.argv) < 3:
-        print("Usage: python client.py <command> <args>")
-        sys.exit(1)
-
     client = MCPClient()
     try:
-        command = sys.argv[1]
-        args = sys.argv[2:]
-
-        await client.connect_to_server(command, args)
+        # Handle command line arguments
+        if len(sys.argv) > 1:
+            # Check if only a directory path is provided (new simplified format)
+            if len(sys.argv) == 2 and os.path.isdir(sys.argv[1]):
+                directory_path = sys.argv[1]
+                print(f"Connecting to Filesystem MCP server with directory: {directory_path}")
+                await client.connect_to_filesystem(directory_path)
+            # Original format with command and args
+            elif len(sys.argv) >= 3:
+                command = sys.argv[1]
+                args = sys.argv[2:]
+                await client.connect_to_server(command, args)
+            else:
+                print("Usage:")
+                print("  python client.py <directory_path>")
+                print("  python client.py <command> <args>")
+                print("  python client.py (no args to use Slack MCP server)")
+                sys.exit(1)
+        else:
+            # Default to Slack MCP server if no arguments provided
+            print("No arguments provided, connecting to Slack MCP server...")
+            await client.connect_to_slack()
+            
         await client.chat_loop()
     finally:
         await client.cleanup()
-
 
 if __name__ == "__main__":
     import sys
