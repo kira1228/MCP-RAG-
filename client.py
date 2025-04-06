@@ -29,7 +29,6 @@ class MCPClient:
             args=args,
             env=None
         )
-        print(server_params)
         
         stdio_transport = await self.exit_stack.enter_async_context(stdio_client(server_params))
         self.stdio, self.write = stdio_transport
@@ -71,7 +70,6 @@ class MCPClient:
         final_text = []
 
         for content in response.content:
-            print(content)
             if content.type == 'text':
                 final_text.append(content.text)
             elif content.type == 'tool_use':
@@ -128,8 +126,8 @@ class MCPClient:
         await self.exit_stack.aclose()
 
 async def main():
-    if len(sys.argv) < 2:
-        print("Usage: python client.py <path_to_server_script>")
+    if len(sys.argv) < 3:
+        print("Usage: python client.py <command> <args>")
         sys.exit(1)
         
     client = MCPClient()
