@@ -2,7 +2,19 @@
 
 ## Overview
 
-MCP is a powerful client-server architecture that enables host applications to connect with multiple AI servers seamlessly.
+MCP is a powerful client-server architecture that enables host applications to connect with multiple AI servers seamlessly. This system offers enhanced capabilities through specialized MCP servers:
+
+- **MCP Filesystem**:
+  Allows Claude to search and retrieve information from your specified local folders, making your documents and files accessible to the AI.
+
+- **MCP Slack Server**:
+  Connects to your Slack workspace, enabling Claude to access and reference your conversations,
+  channels, and shared resources.
+
+- **MCP Brave-Search**:
+  Provides real-time web search capabilities, allowing Claude to find and incorporate the latest information from the internet.
+
+The system intelligently determines which server to utilize based on your queries. Claude automatically analyzes your questions and decides whether to search your local files, check Slack history, or perform a web search - all without requiring explicit instructions from you.
 
 ## General Architecture
 
