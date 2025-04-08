@@ -37,7 +37,7 @@ brew install uv
 1. Clone the repository.
 
 ```bash
-git clone https://github.com/megmogmog1965/example-mcp-client.git
+git clone https://github.com/kira1228/mcp-chat-bot.git
 cd mcp-chat-bot
 ```
 
