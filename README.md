@@ -14,7 +14,11 @@ At its core, MCP follows a client-server architecture where a host application c
 
 ### Prerequisites
 
-- `uv` package manager installed on your system
+You need to install `uv` to run this project.
+
+```bash
+brew install uv
+```
 
 ### Setup
 
@@ -34,4 +38,12 @@ echo "SLACK_TEAM_ID=<your api key>" >> .env
 
 # BRAVE_API_KEY: Used for Brave search capabilities
 echo "BRAVE_API_KEY=<your api key>" >> .env
+```
+
+### Usage
+
+Run the client with arguments for the server.
+
+```bash
+uv run client.py path/to/dir
 ```
