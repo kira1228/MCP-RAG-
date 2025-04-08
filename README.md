@@ -22,7 +22,14 @@ brew install uv
 
 ### Setup
 
-1. Create a `.env` file with your API keys:
+1. Clone the repository.
+
+```bash
+git clone https://github.com/megmogmog1965/example-mcp-client.git
+cd mcp-chat-bot
+```
+
+2. Create a `.env` file with your API keys:
 
 ```bash
 # Create the .env file
@@ -38,6 +45,14 @@ echo "SLACK_TEAM_ID=<your api key>" >> .env
 
 # BRAVE_API_KEY: Used for Brave search capabilities
 echo "BRAVE_API_KEY=<your api key>" >> .env
+```
+
+3. Create a virtual environment and install the dependencies.
+
+```bash
+uv venv
+source .venv/bin/activate
+uv sync
 ```
 
 ### Usage
