@@ -102,6 +102,9 @@ class MCPClient:
         return server
 
     async def connect_to_brave_search(self) -> MCPServer:
+        """
+        Helper method to connect to Brave-search MCP server        
+        """ 
         # Get brave-search API Key
         brave_search_api = os.getenv('BRAVE_API_KEY')
 
