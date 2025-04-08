@@ -170,7 +170,7 @@ class MCPClient:
                   User query: "{query}"
 
                   Available tool servers:
-                  {chr(10).join(available_servers)}
+                  {chr(15).join(available_servers)}
 
                   You must respond with a JSON object containing a single field "server" with one of these values:
 
