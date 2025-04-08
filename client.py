@@ -15,7 +15,9 @@ load_dotenv()  # load environment variables from .env
 
 
 class MCPServer:
-    """Class to represent an individual MCP server connection"""
+    """
+    Class to represent an individual MCP server connection
+    """
     def __init__(self, name: str, session: ClientSession, tools: List[Dict[str, Any]]):
         self.name = name
         self.session = session
@@ -221,7 +223,9 @@ class MCPClient:
             return None
 
     async def process_query(self, query: str) -> str:
-        """Process a query using Claude and available tools"""
+        """
+        Process a query using Claude and available tools
+        """
         # Use LLM to determine which server to use
         server_name = await self.select_server_with_llm(query)
         
@@ -292,7 +296,9 @@ class MCPClient:
         return "\n".join(final_text)
 
     async def chat_loop(self):
-        """Run an interactive chat loop"""
+        """
+        Run an interactive chat loop
+        """
         print("\nMCP Client Started!")
         print("Type your queries or 'quit' to exit.")
         
@@ -319,7 +325,9 @@ class MCPClient:
                 traceback.print_exc()
 
     async def cleanup(self):
-        """Clean up resources"""
+        """
+        Clean up resources
+        """
         await self.exit_stack.aclose()
 
 
