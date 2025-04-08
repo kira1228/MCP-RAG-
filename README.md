@@ -60,5 +60,11 @@ uv sync
 Run the client with arguments for the server.
 
 ```bash
-uv run client.py path/to/dir
+uv run client.py path/to/dir/you/want/to/use
 ```
+
+## References
+
+- [About MCP](https://modelcontextprotocol.io/introduction)
+- [Open source MCP servers](https://github.com/modelcontextprotocol/servers)
+- [Claude API](https://docs.anthropic.com/en/api/getting-started)
