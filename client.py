@@ -344,6 +344,13 @@ async def main():
             servers_connected += 1
         except Exception as e:
             print(f"Failed to connect to Slack server: {e}")
+
+        # Try to connect to Brave-search
+        try:
+            await client.connect_to_brave_search()
+            servers_connected += 1
+        except Exception as e:
+            print(f"Failed to connect to Brave-search server: {e}")
             
         if servers_connected == 0:
             print("Warning: Failed to connect to any MCP servers. Running with Claude API only.")
