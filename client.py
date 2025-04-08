@@ -105,13 +105,21 @@ class MCPClient:
         # Get brave-search API Key
         brave_search_api = os.getenv('BRAVE_API_KEY')
 
+        env = {
+            "BRAVE_API_KEY": brave_search_api
+        }
+
         if not brave_search_api:
             raise EnvironmentError("Brave-search API Key is missing, please check the .env file.")
         
         command = "npx"
         args = ["-y", "@modelcontextprotocol/server-brave-search"]
 
+        server = await self.connect_to_server("brave-search", command, args, env)
+        print("Connected Brave-search MCP server")
 
+        return server
+     
     async def connect_to_filesystem(self, directory_path) -> MCPServer:
         """
         Helper method to connect to Filesystem MCP server with the specified directory
@@ -142,6 +150,7 @@ class MCPClient:
         # Create a description of available servers and their capabilities
         server_descriptions = {
             "filesystem": "Access and manipulate files and directories. Useful for reading files, listing directories, searching for files, and file operations.",
+            "brave-search": "Perform web searches using Brave Search. Useful for retrieving up-to-date search results, verifying information, and exploring web content in a privacy-focused manner.",
             "slack": "Interact with Slack. Useful for listing channels, posting messages, replying to threads, adding reactions, and getting channel history or user information."
         }
         
