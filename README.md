@@ -7,7 +7,7 @@
 - **[MCP Filesystem](https://github.com/modelcontextprotocol/servers/blob/main/src/filesystem/README.md)**:
   Allows Claude to search and retrieve information from your specified local folders, making your documents and files accessible to the AI.
 
-- **MCP Slack Server**:
+- **[MCP Slack Server](https://github.com/modelcontextprotocol/servers/blob/main/src/slack/README.md)**:
   Connects to your Slack workspace, enabling Claude to access and reference your conversations,
   channels, and shared resources.
 
