@@ -101,6 +101,17 @@ class MCPClient:
         print("Connected to Slack MCP server")
         return server
 
+    async def connect_to_brave_search(self) -> MCPServer:
+        # Get brave-search API Key
+        brave_search_api = os.getenv('BRAVE_API_KEY')
+
+        if not brave_search_api:
+            raise EnvironmentError("Brave-search API Key is missing, please check the .env file.")
+        
+        command = "npx"
+        args = ["-y", "@modelcontextprotocol/server-brave-search"]
+
+
     async def connect_to_filesystem(self, directory_path) -> MCPServer:
         """
         Helper method to connect to Filesystem MCP server with the specified directory
@@ -116,7 +127,7 @@ class MCPClient:
         
         server = await self.connect_to_server("filesystem", command, args)
         print(f"Connected to Filesystem MCP server with directory: {directory_path}")
-        return server
+        return server        
 
     async def select_server_with_llm(self, query: str) -> Optional[str]:
         """
@@ -153,7 +164,7 @@ class MCPClient:
                   {chr(10).join(available_servers)}
 
                   You must respond with a JSON object containing a single field "server" with one of these values:
-                  
+
                   - The name of a server if the query clearly needs that server's tools
                   - "none" if the query is general and doesn't need specialized tools
 
