@@ -4,7 +4,7 @@
 
 [MCP](https://modelcontextprotocol.io/introduction) is a powerful client-server architecture that enables host applications to connect with multiple AI servers seamlessly. This system offers enhanced capabilities through specialized MCP servers:
 
-- **MCP Filesystem**:
+- **[MCP Filesystem](https://github.com/modelcontextprotocol/servers/blob/main/src/filesystem/README.md)**:
   Allows Claude to search and retrieve information from your specified local folders, making your documents and files accessible to the AI.
 
 - **MCP Slack Server**:
