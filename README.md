@@ -1,9 +1,37 @@
-## AI-powered chat system with MCP servers
+# AI-powered Chat System with multiple MCP servers,
 
-## General-architecture
+## Overview
+
+MCP is a powerful client-server architecture that enables host applications to connect with multiple AI servers seamlessly.
+
+## General Architecture
 
 At its core, MCP follows a client-server architecture where a host application can connect to multiple servers:
 
-<img width="737" alt="Screenshot 2025-04-07 at 6 41 55" src="https://github.com/user-attachments/assets/6800d38e-3e46-42a8-bd22-479a0b6accca" />
+<img width="737" alt="MCP Architecture Diagram" src="https://github.com/user-attachments/assets/6800d38e-3e46-42a8-bd22-479a0b6accca" />
 
-## Getting Started!
+## Getting Started! 🚀
+
+### Prerequisites
+
+- `uv` package manager installed on your system
+
+### Setup
+
+1. Create a `.env` file with your API keys:
+
+```bash
+# Create the .env file
+touch .env
+
+# Add your API credentials
+# ANTHROPIC_API_KEY: Used for Claude AI integration
+echo "ANTHROPIC_API_KEY=<your api key>" >> .env
+
+# SLACK_BOT_TOKEN & SLACK_TEAM_ID: Required for Slack integration
+echo "SLACK_BOT_TOKEN=<your api key>" >> .env
+echo "SLACK_TEAM_ID=<your api key>" >> .env
+
+# BRAVE_API_KEY: Used for Brave search capabilities
+echo "BRAVE_API_KEY=<your api key>" >> .env
+```
