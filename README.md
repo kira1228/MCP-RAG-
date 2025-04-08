@@ -75,7 +75,7 @@ Run the client with arguments for the server.
 uv run client.py path/to/dir/you/want/to/use
 ```
 
-## References 📖
+## References 📚
 
 - [About MCP](https://modelcontextprotocol.io/introduction)
 - [Open source MCP servers](https://github.com/modelcontextprotocol/servers)
