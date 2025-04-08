@@ -1,6 +1,6 @@
 # AI-powered Chat System with multiple MCP servers,
 
-## Overview
+## Overview 🌟
 
 MCP is a powerful client-server architecture that enables host applications to connect with multiple AI servers seamlessly. This system offers enhanced capabilities through specialized MCP servers:
 
@@ -16,7 +16,7 @@ MCP is a powerful client-server architecture that enables host applications to c
 
 The system intelligently determines which server to utilize based on your queries. Claude automatically analyzes your questions and decides whether to search your local files, check Slack history, or perform a web search - all without requiring explicit instructions from you.
 
-## General Architecture
+## General Architecture 🔨
 
 At its core, MCP follows a client-server architecture where a host application can connect to multiple servers:
 
@@ -24,7 +24,7 @@ At its core, MCP follows a client-server architecture where a host application c
 
 ## Getting Started! 🚀
 
-### Prerequisites
+### Prerequisites 🤝
 
 You need to install `uv` to run this project.
 
@@ -67,7 +67,7 @@ source .venv/bin/activate
 uv sync
 ```
 
-### Usage
+### Usage 💻
 
 Run the client with arguments for the server.
 
@@ -75,7 +75,7 @@ Run the client with arguments for the server.
 uv run client.py path/to/dir/you/want/to/use
 ```
 
-## References
+## References 📖
 
 - [About MCP](https://modelcontextprotocol.io/introduction)
 - [Open source MCP servers](https://github.com/modelcontextprotocol/servers)
