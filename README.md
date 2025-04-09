@@ -29,7 +29,7 @@ At its core, MCP follows a client-server architecture where a host application c
 You need to install `uv` to run this project.
 
 ```bash
-# MacOs/Linux
+# MacOS/Linux
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Windows
@@ -66,8 +66,14 @@ echo "BRAVE_API_KEY=<your api key>" >> .env
 3. Create a virtual environment and install the dependencies.
 
 ```bash
+# MacOS/Linux
 uv venv
 source .venv/bin/activate
+uv sync
+
+# Windows
+uv venv
+.venv\Scripts\activate
 uv sync
 ```
 
