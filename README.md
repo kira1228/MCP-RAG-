@@ -29,7 +29,8 @@ At its core, MCP follows a client-server architecture where a host application c
 You need to install `uv` to run this project.
 
 ```bash
-brew install uv
+# MacOs/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
 ### Setup ⚙️
