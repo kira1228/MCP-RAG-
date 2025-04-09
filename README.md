@@ -30,7 +30,7 @@ You need to install `uv` to run this project.
 
 ```bash
 # MacOs/Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
+brew install uv
 
 # Windows
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
