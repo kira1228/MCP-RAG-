@@ -90,6 +90,7 @@ uv run client.py path/to/dir/you/want/to/use
 - [About MCP](https://modelcontextprotocol.io/introduction)
 - [Open source MCP servers](https://github.com/modelcontextprotocol/servers)
 - [Claude API](https://docs.anthropic.com/en/api/getting-started)
+- [Brave search API]
 
 ## License 🔑
 This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
