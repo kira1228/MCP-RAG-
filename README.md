@@ -1,4 +1,4 @@
-# AI-powered Chat System with multiple MCP servers.
+# AI-powered chat system with multiple MCP servers.
 
 ## Overview 🌟
 
