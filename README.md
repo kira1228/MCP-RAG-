@@ -1,6 +1,6 @@
 # AI-powered chat system with multiple MCP servers.
 
-## Overview 🌟
+## 🌟 Overview
 
 [MCP](https://modelcontextprotocol.io/introduction) is a powerful client-server architecture that enables host applications to connect with multiple AI servers seamlessly. This system offers enhanced capabilities through specialized MCP servers:
 
